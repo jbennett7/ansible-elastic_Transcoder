@@ -1,0 +1,15 @@
+---
+- name: "Create elastic transcoder {{ et_name }}"
+  elastictranscoder:
+    name: "{{ et_name }}"
+    state: "{{ et_state }}"
+    region: "{{ et_region }}"
+    input_bucket: "{{ et_input_bucket }}"
+    output_bucket: "{{ et_output_bucket }}"
+    role: "{{ et_role }}"
+    notifications: "{{ et_notifications }}"
+  register: et_output
+
+- name: "Set et_pipeline_id as new fact."
+  set_fact:
+    et_pipeline_id: "{{ et_output['Id'] }}"

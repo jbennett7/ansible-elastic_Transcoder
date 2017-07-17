@@ -1,0 +1,7 @@
+---
+et_state: present
+et_notifications: 
+  progressing: ""
+  complete: ""
+  warning: ""
+  error: ""
